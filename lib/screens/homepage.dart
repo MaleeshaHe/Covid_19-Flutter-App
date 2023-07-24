@@ -1,3 +1,4 @@
+import 'package:covid_19/models/covid_data_model.dart';
 import 'package:covid_19/services/api_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
       future: service.getData(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          Map<String, dynamic> data = snapshot.data!;
+          CovidDataModel data = snapshot.data!;
           return SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -54,13 +55,13 @@ class _HomePageState extends State<HomePage> {
                         size: size,
                         title: "Loacal Deaths",
                         color: Colors.red,
-                        value: data['local_deaths'],
+                        value: data.totalDeaths!.toInt(),
                       ),
                       CustomContainer(
                         size: size,
                         title: "Total Recovered",
                         color: Colors.green,
-                        value: data['local_recovered'],
+                        value: data.totalRecoverd!.toInt(),
                       ),
                     ],
                   ),
@@ -71,13 +72,13 @@ class _HomePageState extends State<HomePage> {
                         size: size,
                         title: "Active Cases",
                         color: Colors.blue,
-                        value: data['local_active_cases'],
+                        value: data.activeCases!.toInt(),
                       ),
                       CustomContainer(
                         size: size,
                         title: "Total Cases",
                         color: Colors.orange,
-                        value: data['local_total_cases'],
+                        value: data.totalCases!.toInt(),
                       ),
                     ],
                   ),
