@@ -1,6 +1,6 @@
 class PcrData {
   String? date;
-  int? count;
+  String? count;
 
   PcrData({this.count, this.date});
 

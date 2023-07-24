@@ -15,7 +15,7 @@ class CovidDataModel {
       this.pcrData});
 
   factory CovidDataModel.fromJson(Map<String, dynamic> json) {
-    List<PcrData> pcrDataList = (json['daliy_per_testing_data'] as List)
+    List<PcrData> pcrDataList = (json['daily_pcr_testing_data'] as List)
         .map((day) => PcrData.fromJson(day))
         .toList();
 
